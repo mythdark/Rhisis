@@ -6,7 +6,7 @@ namespace Rhisis.World.Game.Components
 {
     public class InventoryComponent
     {
-        public List<Item> Items { get; }
+        public IList<Item> Items { get; }
 
         public InventoryComponent()
         {

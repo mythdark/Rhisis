@@ -80,7 +80,7 @@ namespace Rhisis.World.Systems
 
         public static void SerializeVisibleEffects(IPlayerEntity player, NetPacketBase packet)
         {
-            IEnumerable<Item> equipedItems = player.InventoryComponent.Items.GetRange(EquipOffset, MaxItems - EquipOffset);
+            IEnumerable<Item> equipedItems = player.InventoryComponent.Items.ToList().GetRange(EquipOffset, MaxItems - EquipOffset);
 
             foreach (var item in equipedItems)
             {
@@ -98,7 +98,7 @@ namespace Rhisis.World.Systems
 
         public static void SerializeEquipedItems(IPlayerEntity player, NetPacketBase packet)
         {
-            IEnumerable<Item> equipedItems = player.InventoryComponent.Items.GetRange(EquipOffset, MaxItems - EquipOffset);
+            IEnumerable<Item> equipedItems = player.InventoryComponent.Items.ToList().GetRange(EquipOffset, MaxItems - EquipOffset);
 
             packet.Write((byte)equipedItems.Count(x => x.Id != -1));
 
